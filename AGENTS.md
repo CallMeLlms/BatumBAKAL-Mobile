@@ -22,7 +22,13 @@ Mobile fitness tracking app (Expo / React Native). Handles auth, program creatio
 
 ## Testing First
 
-Write jest-expo tests before building a feature (tests live in `components/__tests__/`). Add failing tests for the new behavior first, then implement until they pass. Run `npm test` (or `npx jest --runInBand --watchAll=false`) to verify.
+Write jest-expo tests before building a feature — fail (red), then implement until they pass (green). Tests live in `components/__tests__/` (mirroring the existing `components/__tests__/StatCard.test.tsx` pattern).
+
+- Use **@testing-library/react-native** (`render`, `screen.getByText(...)`, `fireEvent`) with behavioral queries — prefer these over `react-test-renderer` snapshots for new tests.
+- `react-test-renderer` stays installed only for legacy snapshot tests; do not write new snapshot tests.
+- Target simple, self-contained components (`ui/`, `stat-components/`) for unit tests; keep tests to one component/file.
+
+Verify with `npx jest --runInBand --watchAll=false StatCard` while iterating on a component, and the full suite before completion.
 
 ## Verification Flow
 
