@@ -4,6 +4,7 @@ import { MAIN_COLORS } from "@/constants/MainColors";
 import { useProgressStore } from "@/stores/progress-stores/progressStores";
 import ProgressVolumeCard from "./progress-dashboard-components/ProgressVolumeCard";
 import ProgressStatCard from "./progress-dashboard-components/ProgressStatCard";
+import CommitGraphCard from "./progress-dashboard-components/CommitGraphCard";
 
 export default function ProgressScreen () {
     const { dashboardData, loading, error, fetchDashboard } = useProgressStore();
@@ -44,6 +45,8 @@ export default function ProgressScreen () {
 
             {dd && (
                 <>
+                    <CommitGraphCard heatmap={dd.heatmap} />
+
                     <ProgressVolumeCard
                         weeklyVolume={dd.weeklyVolume}
                         weeklyStats={dd.weeklyStats}
