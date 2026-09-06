@@ -14,6 +14,14 @@ export interface WeeklyStats {
   completionRate: number;
 }
 
+export interface HeatmapDay {
+  date: string;
+  count: number;
+  totalSets: number;
+  weightVolume: number;
+  level: number;
+}
+
 export interface DashboardData {
   weeklyVolume: DayVolume[];
   weeklyStats: WeeklyStats;
@@ -22,6 +30,7 @@ export interface DashboardData {
   totalWeightVolume: number;
   streak: number;
   previousWeekStats: WeeklyStats | null;
+  heatmap: HeatmapDay[];
 }
 
 interface ProgressState {
